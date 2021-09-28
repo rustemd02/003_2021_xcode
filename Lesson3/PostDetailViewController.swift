@@ -17,7 +17,7 @@ class PostDetailViewController: UIViewController {
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var authorLabel: UILabel!
     @IBOutlet weak var timestampLabel: UILabel!
-    @IBOutlet weak var contentLabel: UILabel?
+    @IBOutlet weak var contentTextView: UITextView!
     @IBOutlet weak var pictureImageView: UIImageView?
     
     
@@ -37,7 +37,11 @@ class PostDetailViewController: UIViewController {
         profileImageView.image = post.profilePicture
         authorLabel.text = post.author
         timestampLabel.text = post.timestamp
-        contentLabel?.text = post.content
+        contentTextView.text = post.content
         pictureImageView?.image = post.contentPicture
+        
+        if (post.contentPicture == nil){
+            self.contentTextView?.transform = CGAffineTransform(translationX: 0, y: -370)
+        }
     }
 }
