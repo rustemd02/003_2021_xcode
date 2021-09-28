@@ -45,15 +45,15 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let post = posts[indexPath.row]
         if (post.content != nil) && (post.contentPicture != nil){
-            let cell = tableView.dequeueReusableCell(withIdentifier: "TextAndImageTableViewCell", for: indexPath) as! TextAndImageTableViewCell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "TextAndImageTableViewCell", for: indexPath) as? TextAndImageTableViewCell  else { return UITableViewCell() }
             cell.configure(post: post)
             return cell
         } else if post.content != nil {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "TextTableViewCell", for: indexPath) as! TextTableViewCell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "TextTableViewCell", for: indexPath) as? TextTableViewCell else { return UITableViewCell() }
             cell.configure(post: post)
             return cell
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ImageTableViewCell", for: indexPath) as! ImageTableViewCell
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "ImageTableViewCell", for: indexPath) as? ImageTableViewCell else { return UITableViewCell() }
             cell.configure(post: post)
             return cell
         }
