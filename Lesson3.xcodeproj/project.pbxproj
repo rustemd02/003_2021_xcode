@@ -21,6 +21,11 @@
 		CF8ABC2D26FE683A00E6C24B /* TextAndImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8ABC2B26FE683A00E6C24B /* TextAndImageTableViewCell.swift */; };
 		CF8ABC2E26FE683A00E6C24B /* TextAndImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF8ABC2C26FE683A00E6C24B /* TextAndImageTableViewCell.xib */; };
 		CF8ABC302700BDB900E6C24B /* TextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8ABC2F2700BDB900E6C24B /* TextTableViewCell.swift */; };
+		CF8ABC442719B9A600E6C24B /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8ABC432719B9A500E6C24B /* Database.swift */; };
+		CF8ABC472719B9CA00E6C24B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8ABC462719B9CA00E6C24B /* User.swift */; };
+		CF8ABC4C2719C17300E6C24B /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8ABC4B2719C17300E6C24B /* TabBarController.swift */; };
+		CF8ABC4E2719C1BD00E6C24B /* AuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8ABC4D2719C1BD00E6C24B /* AuthorizationViewController.swift */; };
+		CF8ABC502719C1CA00E6C24B /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8ABC4F2719C1CA00E6C24B /* RegistrationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +45,11 @@
 		CF8ABC2B26FE683A00E6C24B /* TextAndImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAndImageTableViewCell.swift; sourceTree = "<group>"; };
 		CF8ABC2C26FE683A00E6C24B /* TextAndImageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextAndImageTableViewCell.xib; sourceTree = "<group>"; };
 		CF8ABC2F2700BDB900E6C24B /* TextTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextTableViewCell.swift; sourceTree = "<group>"; };
+		CF8ABC432719B9A500E6C24B /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
+		CF8ABC462719B9CA00E6C24B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		CF8ABC4B2719C17300E6C24B /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		CF8ABC4D2719C1BD00E6C24B /* AuthorizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewController.swift; sourceTree = "<group>"; };
+		CF8ABC4F2719C1CA00E6C24B /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,23 +82,60 @@
 		5E0B808A26FA2BAE00F7BB92 /* Lesson3 */ = {
 			isa = PBXGroup;
 			children = (
+				CF8ABC4A2719BA3400E6C24B /* Controllers */,
+				CF8ABC492719BA2600E6C24B /* Views */,
+				CF8ABC482719BA0C00E6C24B /* Delegates */,
+				CF8ABC452719B9B900E6C24B /* Models */,
+				5E0B809426FA2BAF00F7BB92 /* Assets.xcassets */,
+				5E0B809926FA2BAF00F7BB92 /* Info.plist */,
+			);
+			path = Lesson3;
+			sourceTree = "<group>";
+		};
+		CF8ABC452719B9B900E6C24B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CF8ABC432719B9A500E6C24B /* Database.swift */,
+				CF8ABC462719B9CA00E6C24B /* User.swift */,
+				5E0B80A126FA315C00F7BB92 /* Post.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CF8ABC482719BA0C00E6C24B /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
 				5E0B808B26FA2BAE00F7BB92 /* AppDelegate.swift */,
 				5E0B808D26FA2BAE00F7BB92 /* SceneDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		CF8ABC492719BA2600E6C24B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CF8ABC2C26FE683A00E6C24B /* TextAndImageTableViewCell.xib */,
+				CF8ABC2826FE682B00E6C24B /* ImageTableViewCell.xib */,
+				CF8ABC2426FE674500E6C24B /* TextTableViewCell.xib */,
+				5E0B809126FA2BAE00F7BB92 /* Main.storyboard */,
+				5E0B809626FA2BAF00F7BB92 /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CF8ABC4A2719BA3400E6C24B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
 				5E0B808F26FA2BAE00F7BB92 /* ViewController.swift */,
 				CF8ABC2F2700BDB900E6C24B /* TextTableViewCell.swift */,
 				5E0B80A526FA3B2800F7BB92 /* PostDetailViewController.swift */,
 				CF8ABC2726FE682B00E6C24B /* ImageTableViewCell.swift */,
 				CF8ABC2B26FE683A00E6C24B /* TextAndImageTableViewCell.swift */,
-				CF8ABC2C26FE683A00E6C24B /* TextAndImageTableViewCell.xib */,
-				CF8ABC2826FE682B00E6C24B /* ImageTableViewCell.xib */,
-				CF8ABC2426FE674500E6C24B /* TextTableViewCell.xib */,
-				5E0B80A126FA315C00F7BB92 /* Post.swift */,
-				5E0B809126FA2BAE00F7BB92 /* Main.storyboard */,
-				5E0B809426FA2BAF00F7BB92 /* Assets.xcassets */,
-				5E0B809626FA2BAF00F7BB92 /* LaunchScreen.storyboard */,
-				5E0B809926FA2BAF00F7BB92 /* Info.plist */,
+				CF8ABC4B2719C17300E6C24B /* TabBarController.swift */,
+				CF8ABC4D2719C1BD00E6C24B /* AuthorizationViewController.swift */,
+				CF8ABC4F2719C1CA00E6C24B /* RegistrationViewController.swift */,
 			);
-			path = Lesson3;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,13 +211,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF8ABC4E2719C1BD00E6C24B /* AuthorizationViewController.swift in Sources */,
 				CF8ABC302700BDB900E6C24B /* TextTableViewCell.swift in Sources */,
 				CF8ABC2D26FE683A00E6C24B /* TextAndImageTableViewCell.swift in Sources */,
+				CF8ABC4C2719C17300E6C24B /* TabBarController.swift in Sources */,
+				CF8ABC502719C1CA00E6C24B /* RegistrationViewController.swift in Sources */,
 				5E0B809026FA2BAE00F7BB92 /* ViewController.swift in Sources */,
 				CF8ABC2926FE682B00E6C24B /* ImageTableViewCell.swift in Sources */,
 				5E0B808C26FA2BAE00F7BB92 /* AppDelegate.swift in Sources */,
 				5E0B80A626FA3B2800F7BB92 /* PostDetailViewController.swift in Sources */,
+				CF8ABC442719B9A600E6C24B /* Database.swift in Sources */,
 				5E0B808E26FA2BAE00F7BB92 /* SceneDelegate.swift in Sources */,
+				CF8ABC472719B9CA00E6C24B /* User.swift in Sources */,
 				5E0B80A226FA315C00F7BB92 /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

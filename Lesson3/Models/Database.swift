@@ -1,9 +1,7 @@
-
+import Foundation
 import UIKit
 
-class ViewController: UIViewController {
-    
-    @IBOutlet weak var tableView: UITableView!
+class Database {
     
     var posts: [Post] = [.init(author: "Штаб", timestamp: "10 ч. назад", profilePicture: UIImage(named: "smart") ?? UIImage(), content: "Мы как и все видим этот обман, но призываем вас посмотреть немного шире. Если мы сейчас опустим руки, ничего не изменится. Если мы не дадим отпор, они еще больше будут наглеть, грабить, давить и унижать нас", contentPicture: nil),
                             .init(author: "Netflix", timestamp: "17 м. назад", profilePicture: UIImage(named: "netflix") ?? UIImage(), content: "Эстетика Тимоти Шаламе 😍", contentPicture: UIImage(named: "timothy") ?? UIImage()),
@@ -17,68 +15,9 @@ class ViewController: UIViewController {
                             .init(author: "Netflix", timestamp: "2 ч. назад", profilePicture: UIImage(named: "netflix") ?? UIImage(), content: "Отис и Руби — любимая пара третьего сезона среди поклонников сериала «Сексуальное просвещение».", contentPicture: UIImage(named: "sex") ?? UIImage()),
                          .init(author: "Медуза", timestamp: "1 ч. назад", profilePicture: #imageLiteral(resourceName: "meduza"), content: "ДАННОЕ СООБЩЕНИЕ (МАТЕРИАЛ) СОЗДАНО И (ИЛИ) РАСПРОСТРАНЕНО ИНОСТРАННЫМ СРЕДСТВОМ МАССОВОЙ ИНФОРМАЦИИ, ВЫПОЛНЯЮЩИМ ФУНКЦИИ ИНОСТРАННОГО АГЕНТА, И (ИЛИ) РОССИЙСКИМ ЮРИДИЧЕСКИМ ЛИЦОМ, ВЫПОЛНЯЮЩИМ ФУНКЦИИ ИНОСТРАННОГО АГЕНТА.", contentPicture: nil)]
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        self.tableView.register(UINib.init(nibName: "TextTableViewCell", bundle: nil), forCellReuseIdentifier: "TextTableViewCell")
-        self.tableView.register(UINib.init(nibName: "ImageTableViewCell", bundle: nil), forCellReuseIdentifier: "ImageTableViewCell")
-        self.tableView.register(UINib.init(nibName: "TextAndImageTableViewCell", bundle: nil), forCellReuseIdentifier: "TextAndImageTableViewCell")
-
-        configure()
-    }
-    
-    private func configure() {
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.reloadData()
-    }
+    var users: [User] = [.init(name: "unterlantas", email: "unterlantas@mail.ru", password: "Unterlantas1", profileImage: UIImage(named: "unterlantasava") ?? UIImage()),
+                         .init(name: "den4ik540", email: "den4ik540@mail.ru", password: "Den4ik5401", profileImage: UIImage(named: "den4ik540ava") ?? UIImage()),
+                         .init(name: "ilyas_kzn", email: "ilyas_kzn@mail.ru", password: "Ilyas_kzn1", profileImage: UIImage(named: "ilyas_kznava") ?? UIImage())]
 }
 
-// MARK: - Table view data source & delegate
-    
-extension ViewController: UITableViewDataSource, UITableViewDelegate {
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return posts.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let post = posts[indexPath.row]
-        if (post.content != nil) && (post.contentPicture != nil){
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "TextAndImageTableViewCell", for: indexPath) as? TextAndImageTableViewCell  else { return UITableViewCell() }
-            cell.configure(post: post)
-            return cell
-        } else if post.content != nil {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "TextTableViewCell", for: indexPath) as? TextTableViewCell else { return UITableViewCell() }
-            cell.configure(post: post)
-            return cell
-        } else {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "ImageTableViewCell", for: indexPath) as? ImageTableViewCell else { return UITableViewCell() }
-            cell.configure(post: post)
-            return cell
-        }
-        
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let post = posts[indexPath.row]
-        
-        if (post.content != nil) && (post.contentPicture != nil){
-            return 400
-        }
-        if post.content != nil{
-            return 100
-        }
-        return 300
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        let post = posts[indexPath.row]
-        let sb = UIStoryboard(name: "Main", bundle: nil)
-        let vc = sb.instantiateViewController(identifier: "PostDetailViewController") as! PostDetailViewController
-        vc.post = post
-        navigationController?.pushViewController(vc, animated: true)
-    }
-}
-
+var data = Database()
